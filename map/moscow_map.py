@@ -3,12 +3,6 @@ import pydeck as pdk
 import pandas as pd
 
 
-def render_text():
-    count = 100
-    st.text('QWQWEQWEQWEQWEQWE' + count)
-    st.button('Button' + count)
-
-
 def render_moscow_map(tab: st._DeltaGenerator, stations: pd.DataFrame):
     # Координаты Москвы
     moscow_latitude = 55.751244
@@ -35,8 +29,6 @@ def render_moscow_map(tab: st._DeltaGenerator, stations: pd.DataFrame):
                                   line_width_min_pixels=1),
                         ],
                     tooltip={'text': 'Название станции: {station}\nШирота: {latitude}\nДолгота: {longitude}'})
-
-    deck.deck_widget.on_click(render_text)
 
     tab.pydeck_chart(deck)
     
